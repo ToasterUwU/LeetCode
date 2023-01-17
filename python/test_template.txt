@@ -1,0 +1,24 @@
+# %LEET_CODE_URL%
+
+import unittest
+
+from src.%PROBLEM_NAME% import Solution
+
+test_cases = %TEST_CASES%
+
+
+class %TEST_CLASS_NAME%(unittest.TestCase):
+    def test_leet_code_examples(self):
+        solution_obj = Solution()
+        func = [
+            getattr(solution_obj, method)
+            for method in dir(solution_obj)
+            if callable(getattr(solution_obj, method)) and not method.startswith("_")
+        ][0]
+
+        for test_case in test_cases:
+            self.assertEqual(func(**test_case["kwargs"]), test_case["correct_output"])
+
+
+if __name__ == "__main__":
+    unittest.main()
